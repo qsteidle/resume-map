@@ -1,0 +1,65 @@
+# Builds the Vite bundle and publishes dist/ to GitHub Pages.
+#
+# This has to exist: index.html loads /src/main.js, which is unbundled dev
+# source with bare imports (e.g. `maplibre-gl`) that no browser can resolve.
+# Pointing Pages at a branch would serve that file and render a blank page.
+# dist/ is gitignored, so the artifact is built here rather than committed.
+#
+# vite.config.js sets `base: './'`, so the bundle works unchanged from the
+# project-site subpath (/personal-map-resume/) without hardcoding the repo name.
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Let an in-flight deploy finish rather than cancelling it mid-publish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      # Unit tests only. The Playwright specs need browser downloads, which
+      # aren't worth the minutes on a static-site deploy.
+      - run: npm test
+
+      - run: npm run build
+
+      # enablement: true provisions the Pages site if it isn't configured yet.
+      # Without it this step exits 1 on a repo where Pages has never been
+      # turned on, which fails the build before anything is uploaded.
+      - uses: actions/configure-pages@v6
+        with:
+          enablement: true
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

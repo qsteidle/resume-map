@@ -1,0 +1,162 @@
+{
+  "note": "Proficiency, not percentiles — Exposure → Working → Proficient → Advanced, self-assessed. Hover a skill to light up the projects behind it.",
+  "categories": [
+    {
+      "name": "Baseball & Sports Science",
+      "skills": [
+        {
+          "label": "Baseball Analytics",
+          "sub": "Statcast · Sabermetrics · Player Development",
+          "level": 4,
+          "projects": [
+            "hackathon-model",
+            "hof-pitcher-model",
+            "pitching-delivery-classifier",
+            "fenway-baseball-trajectory-sim",
+            "baseball-cfd-magnus-sim",
+            "torpedo-bat-model",
+            "pitching-biomechanics-capstone"
+          ]
+        },
+        {
+          "label": "Biomechanics & Motion Capture",
+          "sub": "KinaTrax · IMU · BLE",
+          "level": 3.5,
+          "aliases": [
+            "IMU Sensors"
+          ],
+          "projects": [
+            "pitching-biomechanics-capstone",
+            "pitching-delivery-classifier"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Data Science",
+      "skills": [
+        {
+          "label": "Machine Learning",
+          "sub": "XGBoost · GAM · GMM · SHAP · PCA",
+          "level": 2.5,
+          "aliases": [
+            "Machine Learning",
+            "Unsupervised Machine Learning",
+            "XGBoost",
+            "GAM",
+            "Gaussian Mixture Models",
+            "SHAP"
+          ]
+        },
+        {
+          "label": "Feature Engineering",
+          "sub": "Normalization · Interaction Features",
+          "level": 2.5,
+          "aliases": [
+            "Feature Engineering"
+          ]
+        },
+        {
+          "label": "Python & Data Stack",
+          "sub": "pandas · NumPy · scikit-learn · matplotlib · seaborn",
+          "level": 2,
+          "aliases": [
+            "Python",
+            "pandas",
+            "NumPy",
+            "NumPy/SciPy"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Software Engineering",
+      "skills": [
+        {
+          "label": "User-Facing Interfaces",
+          "sub": "JS/TypeScript · React · Node · MapLibre · RShiny · Streamlit",
+          "level": 2,
+          "aliases": [
+            "JavaScript",
+            "HTML/CSS",
+            "MapLibre GL JS",
+            "Progressive Web Apps (PWA)"
+          ]
+        },
+        {
+          "label": "Computer Vision",
+          "sub": "OpenCV · YOLO · MediaPipe",
+          "level": 1.5,
+          "aliases": [
+            "Computer Vision (OpenCV)"
+          ]
+        },
+        {
+          "label": "Product Design",
+          "sub": "Human Factors · Spec-driven Design · Prompt Engineering",
+          "level": 3,
+          "aliases": [
+            "Product Design",
+            "Prompt Engineering",
+            "Human Factors"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mechanical Engineering",
+      "skills": [
+        {
+          "label": "Prototyping & Fabrication",
+          "sub": "Construction · Testing · Power Tools",
+          "level": 3.5,
+          "aliases": [
+            "Drone Assembly",
+            "Prototyping",
+            "3D-Printing",
+            "Flight Testing",
+            "Fabrication",
+            "Woodworking",
+            "Power Tools",
+            "Structural Design",
+            "Design Under Constraints",
+            "Circuit Design",
+            "Digital Electronics",
+            "Electronics",
+            "Troubleshooting"
+          ]
+        },
+        {
+          "label": "Mechanical Design (CAD)",
+          "sub": "SolidWorks (CSWA)",
+          "level": 3,
+          "aliases": [
+            "SolidWorks"
+          ]
+        },
+        {
+          "label": "CFD & FEA",
+          "sub": "Ansys · MATLAB",
+          "level": 2,
+          "aliases": [
+            "CFD",
+            "Ansys Fluent",
+            "Finite Element Analysis",
+            "MATLAB"
+          ]
+        },
+        {
+          "label": "Computational Physics",
+          "sub": "integrators · dynamics · VPython",
+          "level": 2,
+          "aliases": [
+            "Computational Physics",
+            "Numerical Methods",
+            "VPython",
+            "MATLAB"
+          ]
+        }
+      ]
+    }
+  ]
+}

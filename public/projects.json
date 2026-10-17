@@ -1,0 +1,379 @@
+{
+  "projects": [
+    {
+      "id": "interactive-resume-map",
+      "size": "regular",
+      "cover": {
+        "type": "pointer",
+        "target": "resume",
+        "tileText": "You're using it right now.",
+        "message": "Click **Resume** to keep exploring."
+      },
+      "title": "Interactive Resume Map",
+      "skills": ["JavaScript", "MapLibre GL JS", "HTML/CSS", "Product Design"],
+      "timeRange": "August 2025 - Present",
+      "experience": "Personal Project",
+      "overview": "The site you're using right now: a map-based resume with a filterable project grid, a cross-linked skills sidebar, and live search",
+      "descriptions": [
+        "Built a map-based resume in JavaScript and MapLibre GL JS that matches each experience to its geographic location",
+        "Designed the projects page as a dynamic bento grid whose tiles cross-reference with a skills sidebar in both directions",
+        "Wired every view into the others; the map tracks the experience panels, each project highlights the skills behind it, and viewers can search to all of it, connecting the dots of my experiences across discipline and geography"
+      ],
+      "media": [
+        {
+          "type": "link",
+          "url": "https://github.com/qsteidle/personal-map-resume",
+          "caption": "View the source code"
+        }
+      ]
+    },
+    {
+      "id": "repasito-spanish-flashcards",
+      "size": "wide",
+      "title": "Repasito — Spanish Flashcards App",
+      "skills": ["Product Design", "Prompt Engineering", "Progressive Web Apps (PWA)"],
+      "timeRange": "July 2026",
+      "experience": "Personal Project",
+      "overview": "An offline flashcard app using session-based spaced repetition",
+      "descriptions": [
+        "Prompted Claude Code to build the app from my own product design and specifications, then tested, validated, and refined it through daily use over several weeks",
+        "Designed the core system: session-based spaced repetition, an SM-2 adaptation that advances cards by study session on a 0-3 recall difficulty scale",
+        "Directed the agent through real-world constraints to ship a fully offline, installable app that stores decks, images, and audio right on your phone, with no backend and an automated test suite"
+      ],
+      "media": [
+        {
+          "type": "image",
+          "url": "media/repasito-study.png",
+          "caption": "Study mode: a flipped card with its definition and example, and the four-way recall rating"
+        },
+        {
+          "type": "image",
+          "url": "media/repasito-editor.png",
+          "caption": "Editor mode: building a card with term, definition, part of speech, example, and notes"
+        },
+        {
+          "type": "link",
+          "url": "https://qsteidle.github.io/language-flashcards/",
+          "caption": "Try the live app"
+        },
+        {
+          "type": "link",
+          "url": "https://github.com/qsteidle/language-flashcards",
+          "caption": "View the source code"
+        }
+      ]
+    },
+    {
+      "id": "pitching-biomechanics-capstone",
+      "size": "feature",
+      "cover": { "type": "video", "url": "media/capstone-demo.mp4", "caption": "Test trial of the capture system" },
+      "title": "Low-Latency Pitching Biomechanics System",
+      "skills": ["Project Leadership", "Systems Engineering", "IMU Sensors", "Human Factors"],
+      "timeRange": "September 2025 - April 2026",
+      "experience": "NU MIE / Boston Red Sox Capstone Project ",
+      "overview": "Proposed and led a senior capstone project: a portable, low-latency pitching biomechanics capture system",
+      "descriptions": [
+        "Pitched the project to the Red Sox sponsor and capstone advisor, then led a hand-picked team through 8 months of NDA-protected development",
+        "The system merges real-time IMU sensor streams with event detection to calculate targeted metrics for player development and injury risk mitigation",
+        "IMUs sit in a custom compression sleeve with integrated sensor pockets for repeatable placement, designed to reduce soft-tissue artifact during explosive movement",
+        "Built the full software stack: a supplemental streaming source, an ASCII command parser, a sensor calibration procedure, a PyQt desktop interface, and an iOS companion app in Swift",
+        "Targeted sub-60-second feedback, with event detection triggering on 97% of test pitches",
+        "Rebuilt after graduation into a fully functional end-to-end version with sub-40-second feedback and 100% event detection on the original test set"
+      ],
+      "media": [
+        {
+          "type": "image",
+          "url": "media/capstone-field-test.jpg",
+          "caption": "Field testing on a modified mound with dual IMUs streaming to the live capture pipeline"
+        },
+        {
+          "type": "image",
+          "url": "media/capstone-architecture.png",
+          "caption": "Flowchart of the system architecture"
+        },
+        {
+          "type": "link",
+          "url": "media/00%20-%20Exec%20Summary%20Template%20Spring%202026%20IE.pdf",
+          "caption": "View the executive summary"
+        },
+        {
+          "type": "link",
+          "url": "media/Capstone%202%20Final%20Presentation.pdf",
+          "caption": "View the final presentation"
+        }
+      ]
+    },
+    {
+      "id": "hof-pitcher-model",
+      "size": "tall",
+      "title": "Hall of Fame Pitcher Model",
+      "skills": ["Python", "Machine Learning", "GAM", "XGBoost", "Feature Engineering"],
+      "timeRange": "January 2026",
+      "experience": "Personal Project",
+      "overview": "A Generalized Additive Model that predicts Hall of Fame induction from pitching careers",
+      "descriptions": [
+        "Built a Generalized Additive Model (pygam) trained on Hall of Fame voting using the Lahman Baseball Database (1900-2024), correctly predicting zero pitchers elected in the 2026 BBWAA class",
+        "Engineered 30+ features, including tensor-product interactions between career timing and counting statistics to contextualize performance across eras, as well as awards voting to quantify non-statistical voter criteria",
+        "Benchmarked against an XGBoost classifier, choosing GAMs to model smooth relationships to better reflect how voters evaluate borderline candidates",
+        "Published a full technical write-up on Medium covering methodology, feature importance, edge cases, and the Big Hall vs. Small Hall debate"
+      ],
+      "media": [
+        {
+          "type": "image",
+          "url": "media/hof-model-results.png",
+          "caption": "Predicted induction probability vs. actual BBWAA vote share"
+        },
+        {
+          "type": "image",
+          "url": "media/hof-model-pdp.png",
+          "caption": "Partial-dependence plot of a key model feature"
+        },
+        {
+          "type": "link",
+          "url": "https://medium.com/@steidleq/predicting-hall-of-fame-pitchers-what-90-years-of-voting-tells-us-about-cooperstown-6ecc60fbe650",
+          "caption": "Read the technical write-up"
+        },
+        {
+          "type": "link",
+          "url": "https://github.com/qsteidle/hof_model",
+          "caption": "View the source code"
+        }
+      ]
+    },
+    {
+      "id": "pitching-delivery-classifier",
+      "size": "regular",
+      "title": "Pitching Delivery Classifier",
+      "skills": ["Python", "Unsupervised Machine Learning", "Gaussian Mixture Models"],
+      "timeRange": "Summer 2025",
+      "experience": "Boston Red Sox",
+      "overview": "Cluster pitching deliveries into windup, stretch, and slide-step from markerless motion-capture data using Gaussian Mixture Models",
+      "descriptions": [
+        "Proposed an unsupervised approach to classify unrecorded pitching deliveries on a pitch level",
+        "Engineered biomechanical features capturing setup geometry and lower-body timing from KinaTrax markerless motion-capture data",
+        "Built a per-pitcher Gaussian Mixture Model that selects its own cluster count via a combined BIC and silhouette criterion, then labels clusters as windup, stretch, or slide-step using game-situation context as a ground-truth signal",
+        "Validated cluster separation with statistical methods and visualizations"
+      ],
+      "media": [
+        {
+          "type": "image",
+          "url": "media/delivery-clusters.png",
+          "caption": "Example GMM delivery clusters for a pitcher with three delivery types"
+        }
+      ]
+    },
+    {
+      "id": "fenway-baseball-trajectory-sim",
+      "size": "wide",
+      "cover": { "type": "video", "url": "media/fenway-sim.mp4", "caption": "3D trajectory simulation in VPython" },
+      "title": "3D Baseball Trajectory Simulation at Fenway Park",
+      "skills": ["Python", "VPython", "NumPy", "Numerical Methods", "Computational Physics"],
+      "timeRange": "Spring 2025",
+      "experience": "NU - Computational Physics",
+      "overview": "A VPython 3D simulation of a batted ball's flight at dimensionally-accurate Fenway Park model",
+      "descriptions": [
+        "Simulated a batted baseball's 3D flight at Fenway Park in VPython, numerically integrating kinematics equations under quadratic drag plus gravity",
+        "Adapted a 2D Particle2D class from a computational physics assignment into a custom Particle3D class using VPython vectors for position/velocity state",
+        "Compared Euler, RK4, and symplectic Leapfrog integration schemes, verifying energy was conserved to within floating-point round-off in the drag-free case",
+        "Grounded physical constants in Dr. Alan Nathan's public Trajectory Calculator, and compared the model's ~401 ft prediction against a Statcast average of 427 ft, attributing the gap to the omission of backspin and Magnus lift"
+      ],
+      "media": [
+        {
+          "type": "video",
+          "url": "media/fenway-sim.mp4",
+          "caption": "3D trajectory simulation in VPython"
+        },
+        {
+          "type": "link",
+          "url": "https://github.com/qsteidle/ProjectPortfolio",
+          "caption": "Source code and technical write-up on GitHub"
+        }
+      ]
+    },
+    {
+      "id": "torpedo-bat-model",
+      "size": "regular",
+      "title": "Torpedo Bat Vibration & Sweet-Spot Model",
+      "skills": ["Python", "Computational Physics", "Finite Element Analysis", "Computer Vision (OpenCV)", "NumPy/SciPy"],
+      "timeRange": "Spring 2025",
+      "experience": "NU - Computational Physics Class Project",
+      "overview": "Computational physics model evaluating the effect of bat mass distribution on performance",
+      "descriptions": [
+        "Modeled a baseball bat as a Timoshenko beam using finite-element analysis to solve its vibration mode shapes and natural frequencies",
+        "Extracted real bat width profiles from photographs using OpenCV to drive the model from actual bat geometry",
+        "Coupled the model to collision mechanics from Dr. Alan Nathan's work to estimate batted-ball performance versus impact location",
+        "Compared a standard bat against a torpedo bat sweet spot, building on Vivienne Pelletier's public work on torpedo-bat vibration modes",
+        "Concluded from the model that the torpedo profile offered little meaningful performance advantage over a standard bat"
+      ],
+      "media": [
+        {
+          "type": "image",
+          "url": "media/bat-mode-shapes.png",
+          "caption": "Vibration mode shapes from the beam model with each mode's natural frequency"
+        },
+        {
+          "type": "image",
+          "url": "media/bat-sweet-spot.png",
+          "caption": "Predicted sweet spot along the barrel: 26.8 in (normal) vs. 26.6 in (torpedo), essentially unchanged"
+        }
+      ]
+    },
+    {
+      "id": "hackathon-model",
+      "size": "regular",
+      "title": "Sports Analytics Hackathon Predictive Model",
+      "skills": ["Python", "Machine Learning", "XGBoost", "Feature Engineering", "SHAP", "pandas"],
+      "timeRange": "April 2025",
+      "experience": "NU - Sports Analytics Club Hackathon",
+      "overview": "First-place hackathon entry using an XGBoost model to predict batted-ball exit velocity",
+      "descriptions": [
+        "Won 1st place (solo) at the inaugural NU Sports Analytics Hackathon with a winning test MSE of ~120 against a held-out test dataset",
+        "Built an XGBoost regression model leveraging features engineered from Statcast pitch-level data to predict exit velocity",
+        "Explored unsupervised pitch clustering and a prototype \"Stuff+\" pitch-quality metric as candidate features",
+        "Interpreted the model with SHAP plots and PCA, and ran a feature-selection sweep, reaching R² ≈ 0.37 (MSE ≈ 130) on an internal train/test split"
+      ],
+      "media": [
+        {
+          "type": "image",
+          "url": "media/exit-velocity-shap.png",
+          "caption": "SHAP feature importance, dominated by launch angle and bat speed"
+        },
+        {
+          "type": "image",
+          "url": "media/exit-velocity-pred-scatter.png",
+          "caption": "Predicted vs. actual exit velocity on the validation set"
+        }
+      ]
+    },
+    {
+      "id": "baseball-cfd-magnus-sim",
+      "size": "tall",
+      "title": "Baseball Aerodynamics CFD Study",
+      "skills": ["Ansys Fluent", "CFD", "SolidWorks", "MATLAB", "Numerical Methods"],
+      "timeRange": "Spring 2024",
+      "experience": "NU - CFD Course Project",
+      "overview": "Ansys Fluent CFD study of a baseball's Magnus lift and turbulent drag",
+      "descriptions": [
+        "Modelled three cases for Ansys Fluent study: 3D steady-state smooth ball, 3D transient smooth ball with a rotating/sliding mesh, and 3D transient seamed ball",
+        "Modeled complex geometry in SolidWorks and generated inflation-layer meshes up to ~2.1 million cells",
+        "Ran a parameter sweep over various spin rates and pitch speeds",
+        "Integrated simulated force components in MATLAB via kinematic equations to reconstruct 3D trajectories using numerical methods",
+        "The simulations never fully converged and produced unrealistic movement, which was attributed to compute limits rather than modeling error"
+      ],
+      "media": [
+        {
+          "type": "image",
+          "url": "media/baseball-cfd-mesh-smooth.png",
+          "caption": "Smooth-ball domain mesh, with boundary-layer inflation detail (inset)"
+        },
+        {
+          "type": "image",
+          "url": "media/baseball-cfd-mesh-seam.png",
+          "caption": "Seam-resolved case: outer domain mesh and the seamed ball surface (inset)"
+        },
+        {
+          "type": "image",
+          "url": "media/baseball-cfd-velocity.png",
+          "caption": "Velocity contour featuring an asymmetric wake indicating the Magnus effect"
+        },
+        {
+          "type": "image",
+          "url": "media/baseball-cfd-convergence.png",
+          "caption": "Residuals (top) and force history (bottom): continuity plateaus, force never settles"
+        }
+      ]
+    },
+    {
+      "id": "intro-to-drones",
+      "size": "regular",
+      "cover": { "type": "video", "url": "media/drone-cover-video.mp4", "caption": "The second prototype in flight" },
+      "title": "Intro to Drones",
+      "skills": ["Drone Assembly", "Prototyping", "3D-Printing", "Electronics", "Flight Testing"],
+      "timeRange": "January 2023 - April 2023",
+      "experience": "AeroNU - NUAV",
+      "overview": "A hands-on introduction to drone design through Northeastern's NUAV club",
+      "descriptions": [
+        "Assembled a beginner-level drone from a club-made kit in a group of four to explore drone building and operation",
+        "Modified the prototype design using 3D-printed PLA components for increased performance and tested it in outdoor flight",
+        "Refined the design into a second prototype on a wooden-dowel airframe with 3D-printed plates and motor clamps, running a Pixhawk flight controller with a 3DR GPS/compass module raised clear of the frame on its own mast, and flight-tested it outdoors"
+      ],
+      "media": [
+        {
+          "type": "image",
+          "url": "media/drone-assembled.jpeg",
+          "caption": "The second prototype ready to fly: wooden-dowel arms, red tri-blade props, and the GPS/compass module raised above the flight controller"
+        },
+        {
+          "type": "image",
+          "url": "media/drone-no-props.jpg",
+          "caption": "Props off, showing the build underneath — 3D-printed plates and motor clamps, sleeved ESC runs, and the flight controller powered up"
+        },
+        {
+          "type": "image",
+          "url": "media/drone-frame-cad.png",
+          "caption": "SolidWorks model of the drone frame"
+        },
+        {
+          "type": "video",
+          "url": "media/drone-flight-v2.mp4",
+          "caption": "Outdoor flight test of the second prototype"
+        }
+      ]
+    },
+    {
+      "id": "stop-the-light-electronic-game",
+      "size": "regular",
+      "cover": { "type": "video", "url": "media/stop-the-light-gameplay.mp4", "caption": "Gameplay in progress" },
+      "title": "\"Stop the Light\" Electronic Game",
+      "skills": ["Circuit Design", "Digital Electronics", "Troubleshooting"],
+      "timeRange": "November 2022 - December 2022",
+      "experience": "NU - Digital Electronics Lab",
+      "overview": "A two-person class project using digital components to create an interactive electronic game",
+      "descriptions": [
+        "Designed a circuit diagram with a partner inspired by classic arcade games",
+        "Installed electronic components including a binary counter, 4-bit adder, and 7-segment LED display",
+        "Troubleshot faulty chips and other components"
+      ],
+      "media": [
+        {
+          "type": "image",
+          "url": "media/stop-the-light-gameplay.jpg",
+          "caption": "The completed circuit on a Proto-Board 203A with red LED lit for 5 points"
+        },
+        {
+          "type": "image",
+          "url": "media/stop-the-light-circuit.jpg",
+          "caption": "Hand-drawn circuit diagram for the game"
+        },
+        {
+          "type": "video",
+          "url": "media/stop-the-light-gameplay.mp4",
+          "caption": "Gameplay in progress"
+        }
+      ]
+    },
+    {
+      "id": "ninja-warrior-obstacle-course",
+      "size": "wide",
+      "cover": { "type": "video", "url": "media/obstacle-course-preview.mp4", "caption": "Obstacle course preview" },
+      "title": "Ninja Warrior Obstacle Course",
+      "skills": ["Woodworking", "Fabrication", "Structural Design", "Design Under Constraints", "Power Tools"],
+      "timeRange": "June 2017 - September 2019",
+      "experience": "Personal Project",
+      "overview": "A backyard American Ninja Warrior-style obstacle course packing 11 obstacles into a 9 ft tall by 9 ft by 14 ft footprint, designed and built with my father for strength training, with heavily overengineered joints and load-bearing supports.",
+      "descriptions": [
+        "Designed and built an 11-obstacle American Ninja Warrior course, featuring lache bars, keyhole grasper, cannonball alley, devil steps, ring toss, peg board, and ultimate cliffhanger into a compact 9 ft tall by 9 ft by 14 ft frame",
+        "Sized obstacles and spacing around real constraints: user physicality, available space, materials stocked at Lowe's and Habitat ReStore, and fixed budget",
+        "Overengineered every joint and hanging obstacle with an excessive safety factor to hold a person's full weight plus dynamic load, using back-of-envelope calculations to validate spans and supports",
+        "Repurposed the landing from a fallen storm-damaged treehouse into the course's stair-and-platform section, reducing material cost and waste"
+      ],
+      "media": [
+        {
+          "type": "video",
+          "url": "https://www.youtube.com/watch?v=KOwZnPCiu8U",
+          "caption": "Obstacle course walkthrough"
+        }
+      ]
+    }
+  ]
+}

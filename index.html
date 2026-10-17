@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Quincy Steidle — Interactive Resume</title>
+<meta name="description" content="An interactive, map-based resume: mechanical engineering and baseball analytics work pinned where it happened, with a browsable project grid and cross-linked skills." />
+<meta name="author" content="Quincy Steidle" />
+<meta name="theme-color" content="#2C63C9" />
+
+<!-- Link previews (Slack, LinkedIn, iMessage). og:url and og:image must be
+     absolute, so these carry the Pages URL rather than a relative path. The
+     card is `summary` not `summary_large_image` because headshot.jpg is 3:4
+     portrait and a wide card would crop it badly — swap in a 1200x630 image
+     and bump this to summary_large_image when one exists. -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Quincy Steidle" />
+<meta property="og:title" content="Quincy Steidle — Interactive Resume" />
+<meta property="og:description" content="A map-based resume: mechanical engineering and baseball analytics work pinned where it happened, with a browsable project grid and cross-linked skills." />
+<meta property="og:url" content="https://qsteidle.github.io/resume-map/" />
+<meta property="og:image" content="https://qsteidle.github.io/resume-map/headshot.jpg" />
+<meta property="og:image:alt" content="Quincy Steidle" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Quincy Steidle — Interactive Resume" />
+<meta name="twitter:description" content="A map-based resume: engineering and baseball analytics work pinned where it happened." />
+<meta name="twitter:image" content="https://qsteidle.github.io/resume-map/headshot.jpg" />
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- Loading overlay -->
+<div id="loading" class="loading"><div class="loading__spinner"></div><div class="loading__text">Loading resume data…</div></div>
+
+<div class="app" id="app">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="brand">
+      <div class="brand__mark">
+        <img class="brand__photo" src="headshot.jpg" alt="Quincy Steidle" onerror="this.remove()">
+        <span>QS</span>
+      </div>
+      <div><span class="brand__name">Quincy Steidle</span></div>
+    </div>
+    <nav class="nav" aria-label="Sections">
+      <button class="nav__btn" data-view="resume" aria-current="page">Resume</button>
+      <button class="nav__btn" data-view="projects">Projects</button>
+      <button class="nav__btn" data-view="contact">Contact</button>
+    </nav>
+    <div class="search" id="search">
+      <svg class="search__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg>
+      <input class="search__input" id="search-input" type="text" placeholder="Search" aria-label="Search experiences">
+      <button class="search__clear" id="search-clear" aria-label="Clear search">×</button>
+      <div class="search-results" id="search-results" role="listbox"></div>
+    </div>
+    <div class="header__spacer"></div>
+    <div class="header__tools">
+      <button class="iconbtn" id="pdf-btn" title="Traditional resume (PDF)" aria-label="View traditional resume">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><text x="11.5" y="18.2" text-anchor="middle" font-size="6.5" font-weight="700" fill="currentColor" stroke="none" font-family="Arial, Helvetica, sans-serif">PDF</text></svg></button>
+      <button class="iconbtn" id="help-btn" title="Help" aria-label="How to use this resume">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.8.4-1 .8-1 1.7"/><circle cx="12" cy="16.5" r=".6" fill="currentColor"/></svg></button>
+      <button class="iconbtn" id="theme-toggle" title="Toggle theme" aria-label="Toggle light and dark theme">
+        <svg id="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"></svg></button>
+    </div>
+  </header>
+
+  <!-- RÉSUMÉ -->
+  <section class="view is-active" id="view-resume">
+    <div class="split">
+      <!-- MAP -->
+      <div class="map-col">
+        <div class="mapwell">
+          <div class="mapwell__bar">
+            <span class="mapwell__title">Click a marker or an experience to explore.</span>
+            <span class="mapwell__coord tnum" id="map-coord">—</span>
+          </div>
+          <div class="mapwell__field" id="mapfield">
+            <div class="mapctrls">
+              <button class="mapctrl" data-map="in" aria-label="Zoom in">+</button>
+              <button class="mapctrl" data-map="out" aria-label="Zoom out">−</button>
+              <button class="mapctrl" data-map="home" aria-label="Reset view"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v9h5v-5h4v5h5v-9"/></svg></button>
+            </div>
+            <div id="map"></div>
+            <div id="greece-minimap"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXPERIENCES -->
+      <aside class="exp-col">
+        <div class="exp-head">
+          <div class="exp-head__top">
+            <h2>Experiences</h2>
+            <div class="exp-count"><span class="num" id="exp-num">0</span><span class="lbl" id="exp-lbl">positions in view</span></div>
+          </div>
+          <div class="filters" id="filters" role="group" aria-label="Filter by category"></div>
+        </div>
+        <div class="exp-list" id="exp-list">
+          <div class="exp-empty" id="exp-empty">Zoom or pan the map to see positions in view.</div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="view" id="view-projects">
+    <div class="proj-body">
+      <!-- Bento grid of project tiles -->
+      <div class="bento" id="bento" role="list" aria-label="Projects"></div>
+
+      <!-- Thin skills rail (right): each skill is a dot + name; cross-highlights the grid -->
+      <aside class="skill-rail" id="skill-rail" aria-label="Skills — hover a skill to highlight its projects">
+        <div class="skill-rail__panel" id="skill-rail-panel">
+          <div class="savant" id="savant"></div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Detail overlay: expands from a tile and fills the area below the header -->
+    <div class="proj-detail-layer" id="proj-detail-layer" hidden aria-hidden="true">
+      <article class="proj-detail" id="proj-detail" role="dialog" aria-modal="true" aria-labelledby="proj-detail-title"></article>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="view--scroll" id="view-contact">
+    <div class="page page--contact">
+      <div class="page__head page__head--contact">
+        <div>
+          <h1>Get in touch</h1>
+         </div>
+        <img class="contact-photo" src="headshot.jpg" alt="Quincy Steidle" onerror="this.remove()">
+      </div>
+
+      <div class="contact-grid">
+      <div class="contact-copy">
+         <p>Thank you for taking the time to experience this project.</p>
+         <p>As you've seen from this site, my obsession with baseball and engineering has taken me all over the map, through paths both unconventional and perfectly fitting.</p>
+         <p>No matter where I am, I love seeking out hard problems, new environments, and passionate people to learn and grow with.</p>
+
+        <h2 class="contact-eyebrow"> Let's talk about</h2>
+        <ul class="interests interests--lg">
+          <li>Player development &amp; coaching</li>
+          <li>Sports analytics &amp; performance analysis</li>
+          <li>Data science &amp; visualization</li>
+          <li class="interests__prompt">What are YOU passionate about?</li>
+        </ul>
+      </div>
+
+      <div class="contact-links">
+        <p class="contact-cta">Want to connect? Keep exploring, or reach out to me:</p>
+        <div class="contact-reach">
+        <a class="proj-link" href="mailto:steidleq@gmail.com">
+          <span class="proj-link__brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M4 7l8 6 8-6"/></svg></span>
+          <span class="proj-link__text">
+            <span class="proj-link__label">Email</span>
+            <span class="proj-link__meta">steidleq@gmail.com</span>
+          </span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+        </a>
+        <p class="contact-place">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span class="proj-link__text">
+            <span class="proj-link__label">Boston, MA</span>
+            <span class="proj-link__meta">Open to relocation</span>
+          </span>
+        </p>
+        </div>
+
+        <div class="clink-grid">
+          <a class="proj-link" href="https://linkedin.com/in/quincy-steidle/" target="_blank" rel="noopener noreferrer">
+            <span class="proj-link__brand"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span>
+            <span class="proj-link__text">
+              <span class="proj-link__label">LinkedIn</span>
+              <span class="proj-link__meta">quincy-steidle</span>
+            </span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </a>
+          <a class="proj-link" href="https://github.com/qsteidle" target="_blank" rel="noopener noreferrer">
+            <span class="proj-link__brand"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span>
+            <span class="proj-link__text">
+              <span class="proj-link__label">GitHub</span>
+              <span class="proj-link__meta">qsteidle</span>
+            </span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </a>
+          <a class="proj-link" href="https://medium.com/@steidleq" target="_blank" rel="noopener noreferrer">
+            <span class="proj-link__brand"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></span>
+            <span class="proj-link__text">
+              <span class="proj-link__label">Medium</span>
+              <span class="proj-link__meta">@steidleq </span>
+            </span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </a>
+          <a class="proj-link" href="https://x.com/qsteidle" target="_blank" rel="noopener noreferrer">
+            <span class="proj-link__brand"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 3h3l-6.6 7.5L21.5 21h-5.9l-4.1-5.4L6.6 21H3.5l7-8L2.5 3h6l3.7 4.9zM16.4 19h1.6L7.7 4.8H6z"/></svg></span>
+            <span class="proj-link__text">
+              <span class="proj-link__label">X</span>
+              <span class="proj-link__meta">@qsteidle</span>
+            </span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
+
+        <div class="contact-explore">
+          <a class="btn btn--primary" href="resume.pdf" download="Quincy-Steidle-Resume.pdf" title="Résumé — PDF, 222 KB">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/></svg>
+            Download résumé (PDF)
+          </a>
+          <button class="btn btn--ghost" data-nav-to="resume">Back to the map</button>
+          <button class="btn btn--ghost" data-nav-to="projects">Browse the projects</button>
+        </div>
+      </div><!-- /.contact-links -->
+      </div><!-- /.contact-grid -->
+    </div>
+  </section>
+
+</div>
+
+<!-- HELP MODAL -->
+<div class="modal" id="help-modal" role="dialog" aria-modal="true" aria-labelledby="help-title">
+  <div class="modal__box">
+    <button class="modal__close" id="help-close" aria-label="Close">×</button>
+    <h2 id="help-title">How to use this resume</h2>
+    <div class="help-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><div><strong>The map</strong><p>Click a marker to fly to it and open its experience; click an experience card to spotlight its marker.</p></div></div>
+    <div class="help-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="4"/><rect x="3" y="10" width="18" height="4"/><rect x="3" y="16" width="18" height="4"/></svg><div><strong>Filters</strong><p>Tap a category pill to narrow the experiences list.</p></div></div>
+    <div class="help-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="5" rx="1"/><rect x="13" y="10" width="8" height="11" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/></svg><div><strong>Projects grid</strong><p>Browse projects as a bento grid — hover a tile for a summary, click to expand it full-screen.</p></div></div>
+    <div class="help-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="12" r="2.5"/><circle cx="13" cy="8" r="2.5"/><circle cx="18" cy="15" r="2.5"/></svg><div><strong>Skills</strong><p>Proficiency, not percentiles — each dot sits from Exposure → Advanced (cold to hot), self-assessed. Hover or click a skill on the right to light up the projects behind it.</p></div></div>
+    <div class="help-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="6"/><path d="M15 15l4 4"/></svg><div><strong>Search</strong><p>Search jobs, companies, locations, or projects from the header.</p></div></div>
+    <div class="help-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg><div><strong>Theme</strong><p>Switch light and dark with the toggle in the header.</p></div></div>
+  </div>
+</div>
+
+<!-- PDF MODAL -->
+<div class="modal" id="pdf-modal" role="dialog" aria-modal="true" aria-labelledby="pdf-title">
+  <div class="modal__box">
+    <button class="modal__close" id="pdf-close" aria-label="Close">×</button>
+    <div class="pdf-head">
+      <h2 id="pdf-title">Résumé</h2>
+      <div class="pdf-actions">
+        <button class="btn btn--primary" id="pdf-view">Open in new tab</button>
+        <button class="btn btn--ghost" id="pdf-download">Download PDF</button>
+      </div>
+    </div>
+    <div class="pdf-preview">
+      <object id="pdf-frame" class="pdf-object" type="application/pdf" aria-label="Résumé preview (PDF)">
+        <div class="pdf-fallback">
+          <p>Your browser can't preview the PDF inline.</p>
+          <a class="btn btn--primary" href="resume.pdf" target="_blank" rel="noopener">Open the résumé</a>
+        </div>
+      </object>
+    </div>
+  </div>
+</div>
+
+<!-- MEDIA LIGHTBOX -->
+<div class="modal lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Media viewer">
+  <button class="modal__close" id="lightbox-close" aria-label="Close">×</button>
+  <div class="lightbox__content" id="lightbox-content"></div>
+</div>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,451 @@
+{
+  "categories": {
+    "sports": {
+      "name": "Sports",
+      "categoryIcon": "emblems/Sport Emblem.png",
+      "iconSize": [
+        60,
+        60
+      ],
+      "anchorLocation": [
+        30,
+        30
+      ]
+    },
+    "engineering": {
+      "name": "Engineering",
+      "categoryIcon": "emblems/Engineering Emblem.png",
+      "iconSize": [
+        60,
+        60
+      ],
+      "anchorLocation": [
+        30,
+        30
+      ]
+    },
+    "education": {
+      "name": "Education",
+      "categoryIcon": "emblems/Education Emblem.png",
+      "iconSize": [
+        50,
+        50
+      ],
+      "anchorLocation": [
+        25,
+        25
+      ]
+    },
+    "service": {
+      "name": "Service",
+      "categoryIcon": "emblems/Community Service Emblem.png",
+      "iconSize": [
+        80,
+        80
+      ],
+      "anchorLocation": [
+        40,
+        40
+      ]
+    },
+    "part-time": {
+      "name": "Part-Time",
+      "categoryIcon": "emblems/Part Time Emblem.png",
+      "iconSize": [
+        30,
+        30
+      ],
+      "anchorLocation": [
+        15,
+        15
+      ]
+    }
+  },
+  "jobs": {
+    "sports": [
+      {
+        "id": "red-sox-boston",
+        "coords": [
+          42.3467,
+          -71.0972
+        ],
+        "company": "Boston Red Sox",
+        "title": "Associate, Baseball Sciences",
+        "period": "May 2026 - Present",
+        "end date": "Present",
+        "location": "Boston, MA",
+        "companyIcon": "logos/red-sox.png",
+        "description": "Continuing to develop tools and processes at the intersection of biomechanics and player development: building advance-scouting infrastructure, taking sole ownership of the real-time pitching biomechanics system, and translating ad hoc research questions into actionable insights for players and coaches across the organization.",
+        "secondaryCategories": [
+          "engineering"
+        ]
+      },
+      {
+        "id": "red-sox",
+        "coords": [
+          26.551,
+          -81.7618
+        ],
+        "company": "Boston Red Sox",
+        "title": "Associate, Baseball Sciences",
+        "period": "Summer 2025",
+        "end date": "08-2025",
+        "location": "Fort Myers, FL",
+        "companyIcon": "logos/red-sox.png",
+        "description": "Translated Kinatrax motion-capture data into actionable insights for MLB and MiLB coaching staff, building R Shiny biomechanics dashboards, automating player report generation, writing metric explainers and normative value documentation, and designing a Gaussian Mixture Model to classify pitcher delivery types.",
+        "secondaryCategories": [
+          "engineering"
+        ]
+      },
+      {
+        "id": "driveline",
+        "coords": [
+          47.3937,
+          -122.252
+        ],
+        "company": "Driveline Baseball",
+        "title": "Hitting Trainer Intern",
+        "period": "Fall 2024",
+        "end date": "12-2024",
+        "location": "Kent, WA",
+        "companyIcon": "logos/driveline.png",
+        "description": "Designed individualized hitting programs for 15+ athletes from youth to pro, integrating motion capture (Blast Motion) and batted-ball tracking (HitTrax, TrackMan) to drive measurable swing gains, while coaching Youth Academy athletes with a philosophy centered on athlete ownership of development."
+      },
+      {
+        "id": "penn-state-baseball",
+        "coords": [
+          40.812259,
+          -77.851825
+        ],
+        "company": "Penn State Baseball/State College Spikes Baseball",
+        "title": "Production Associate",
+        "period": "2019, 2022",
+        "end date": "08-2022",
+        "location": "State College, PA",
+        "companyIcon": "logos/state-college-spikes.png",
+        "partnerorg": "Penn State Baseball",
+        "partnerorgIcon": "logos/penn-state-baseball.png",
+        "description": "Oversaw in-game operations for NCAA, MiLB, and MLB Draft League baseball, including managing Trackman analytics, operating Dakstats for live scoring, and running production equipment such as cameras, scoreboard, and graphics.",
+        "secondaryCategories": [
+          "part-time"
+        ]
+      
+      },
+      {
+        "id": "nittany-gym",
+        "coords": [
+          40.8248,
+          -77.8137
+        ],
+        "company": "Nittany Gymnastics Academy",
+        "title": "Parkour Instructor",
+        "period": "2017-2020",
+        "end date": "03-2020",
+        "location": "State College, PA",
+        "companyIcon": "logos/nittany-gymnastics.jpg",
+        "description": "Instructed parkour, ninja warrior, and tumbling classes for ages 3–15, trained new coaches, developed skill-based curricula, and led advanced invite-only sessions and competitions.",
+        "secondaryCategories": [
+          "part-time"
+        ]
+      }
+    ],
+    "engineering": [
+      {
+        "id": "simplehuman",
+        "coords": [
+          33.8503,
+          -118.2924
+        ],
+        "company": "simplehuman",
+        "title": "Mechanical Engineering Co-op",
+        "period": "Summer/Fall 2023",
+        "end date": "12-2023",
+        "location": "Torrance, CA",
+        "companyIcon": "logos/simplehuman.png",
+        "description": "Led testing and analysis on 80+ products for performance, reliability, and failure modes; developed multi-stage QC testing plans, evaluated firmware, and contributed to new product development through research, supplier coordination, and prototyping with SolidWorks and 3D printing."
+      },
+      {
+        "id": "takachar",
+        "coords": [
+          38.1257,
+          -122.494
+        ],
+        "company": "Takachar",
+        "title": "Project Engineer Co-op",
+        "period": "Summer 2024",
+        "end date": "08-2024",
+        "location": "Novato, CA",
+        "companyIcon": "logos/takachar.png",
+        "description": "Monitored daily operation of biomass reactor producing 500 kg of biochar, performed equipment maintenance and repairs, fabricated cooling and vibration systems to prevent blockages, and conducted SolidWorks FEA on reactor components."
+      }
+    ],
+    "education": [
+      {
+        "id": "northeastern",
+        "coords": [
+          42.3351,
+          -71.0893
+        ],
+        "company": "Northeastern University",
+        "title": "Bachelor of Science in Mechanical Engineering",
+        "period": "2021-2026",
+        "end date": "04-2026",
+        "location": "Boston, MA",
+        "companyIcon": "logos/northeastern.png",
+        "description": "Graduated magna cum laude with a B.S. in Mechanical Engineering, minors in physics and mathematics, and a 3.77 GPA. Captained the club baseball team as Director of Player Development, with heavy involvement in community service and experiential learning.",
+        "secondaryCategories": [
+          "engineering"
+        ]
+      },
+      {
+        "id": "northeastern-seattle",
+        "coords": [
+          47.623,
+          -122.337
+        ],
+        "company": "Northeastern University Seattle",
+        "title": "Summer In: Seattle Aerospace Engineering",
+        "period": "Summer 2023",
+        "end date": "07-2023",
+        "location": "Seattle, WA",
+        "companyIcon": "logos/northeastern.png",
+        "description": "Intensive aerospace engineering program with coursework focused on aerodynamics and fluid mechanics in collaboration with Seattle aerospace industry partners.",
+        "secondaryCategories": [
+          "engineering"
+        ]
+      },
+      {
+        "id": "athens",
+        "coords": [
+          37.969791,
+          23.741014
+        ],
+        "company": "Northeastern University - Dialogue of Civilizations",
+        "title": "Evolution of Scientific Thought and Engineering Abroad",
+        "period": "Summer 2024",
+        "end date": "07-2024",
+        "location": "Greece",
+        "companyIcon": "logos/northeastern.png",
+        "partnerorg": "College Year in Athens",
+        "partnerorgIcon": "logos/college-year-athens.jpg",
+        "description": "Immersive cultural and academic study abroad program studying ancient and modern Greek civilization, archaeology, and engineering innovation in the cradle of civilization."
+      },
+      {
+        "id": "high-school",
+        "coords": [
+          40.7814,
+          -77.8571
+        ],
+        "company": "State College Area High School",
+        "title": "High School Diploma",
+        "period": "Class of 2020",
+        "end date": "06-2020",
+        "location": "State College, PA",
+        "companyIcon": "logos/state-college-high.jpg",
+        "description": "Graduated with a weighted GPA of 4.56, ranking in the top 10% of the class. National Merit Scholar Semifinalist active in State High Journalism (Sports Editor), Varsity Baseball, and Varsity Track & Field."
+      }
+    ],
+    "service": [
+      {
+        "id": "the-base",
+        "coords": [
+          42.3283,
+          -71.0765
+        ],
+        "company": "The BASE",
+        "title": "Volunteer Coach",
+        "period": "May 2026 - Present",
+        "end date": "Present",
+        "location": "Boston, MA",
+        "companyIcon": "logos/the-base.png",
+        "description": "Volunteer coach for summer skill-development workouts and high school fall ball at a Roxbury nonprofit that pairs year-round baseball and softball training with academic and career support for Greater Boston youth.",
+        "secondaryCategories": [
+          "sports"
+        ]},
+      {
+        "id": "americorps-sac",
+        "coords": [
+          38.5762,
+          -121.394
+        ],
+        "company": "AmeriCorps NCCC",
+        "title": "Corps Member",
+        "period": "Fall 2020",
+        "end date": "12-2020",
+        "location": "Sacramento, CA",
+        "companyIcon": "logos/americorps-nccc.svg",
+        "partnerorg": "Yolo Food Bank",
+        "partnerorgIcon": "logos/yolo-food-bank.png",
+        "description": "Supported food security, transportation, and housing initiatives by sorting and distributing food at Yolo County Food Bank, and promoting transportation accessibility for underserved communities with Sacramento Regional Transit."
+      },
+      {
+        "id": "americorps-pat",
+        "coords": [
+          48.0527,
+          -119.9007
+        ],
+        "company": "AmeriCorps NCCC",
+        "title": "Corps Member",
+        "period": "Summer 2021",
+        "end date": "07-2021",
+        "location": "Pateros, WA",
+        "companyIcon": "logos/americorps-nccc.svg",
+        "partnerorg": "Treehouse Early Education",
+        "partnerorgIcon": "logos/treehouse.webp",
+        "description": "Assisted in disaster recovery efforts with the Okanogan County Long Term Recovery Group, restoring wildfire-damaged properties, and renovated the Treehouse Early Education facility in Pateros to improve childcare accessibility for working families in rural communities."
+      },
+      {
+        "id": "americorps-pc",
+        "coords": [
+          40.7214,
+          -111.48
+        ],
+        "company": "AmeriCorps NCCC",
+        "title": "Corps Member",
+        "period": "Winter 2021",
+        "end date": "03-2021",
+        "location": "Park City, UT",
+        "companyIcon": "logos/americorps-nccc.svg",
+        "partnerorg": "Habitat for Humanity of Summit and Wasatch Counties",
+        "partnerorgIcon": "logos/habitat.webp",
+        "description": "Built affordable housing by framing, installing insulation, drywall, and roofing on two-story homes, to create safe and stable living spaces for families in need."
+      },
+      {
+        "id": "americorps-gb",
+        "coords": [
+          39.0101,
+          -76.9104
+        ],
+        "company": "AmeriCorps NCCC",
+        "title": "Corps Member",
+        "period": "Spring 2021",
+        "end date": "05-2021",
+        "location": "Greenbelt, MD",
+        "companyIcon": "logos/americorps-nccc.svg",
+        "partnerorg": "FEMA",
+        "partnerorgIcon": "logos/fema.svg",
+        "description": "Guided patients through health screenings and monitored post-vaccination reactions, supporting underserved communities in accessing essential healthcare services during the vaccination rollout."
+      },
+      {
+        "id": "stemout",
+        "coords": [
+          42.3186,
+          -71.1135
+        ],
+        "company": "NU STEMOUT",
+        "title": "Volunteer Coordinator",
+        "period": "2021-2023",
+        "end date": "05-2023",
+        "location": "Boston, MA",
+        "companyIcon": "logos/nu-stemout.png",
+        "description": "Led outreach initiatives to promote STEM education in underserved communities, organized workshops and events in collaboration with local schools to enhance STEM curriculum."
+      }
+    ],
+    "part-time": [
+      {
+        "id": "yard-house",
+        "coords": [
+          42.3479,
+          -71.0818
+        ],
+        "company": "Yard House",
+        "title": "Server",
+        "period": "Spring 2026",
+        "end date": "06-2026",
+        "location": "Boston, MA",
+        "companyIcon": "logos/yard-house.png",
+        "description": "Part-time role through final semester at Northeastern, developing communication and composure skills in a high-volume, fast-paced environment."
+      },
+      {
+        "id": "thornton",
+        "coords": [
+          42.343,
+          -71.0994
+        ],
+        "company": "Thornton's Fenway Grille",
+        "title": "Server",
+        "period": "Spring 2024",
+        "end date": "05-2024",
+        "location": "Boston, MA",
+        "companyIcon": "logos/thorntons.png",
+        "description": "Provided exceptional customer service in a fast-paced restaurant environment, managed food and beverage orders, and maintained a positive dining experience for guests in the heart of Fenway."
+      },
+      {
+        "id": "cava",
+        "coords": [
+          42.344,
+          -71.0992
+        ],
+        "company": "CAVA",
+        "title": "Grill Cook",
+        "period": "Spring 2023",
+        "end date": "05-2023",
+        "location": "Boston, MA",
+        "companyIcon": "logos/cava.png",
+        "description": "Prepared and served meals while ensuring food safety, quality, and cleanliness; followed standardized recipes, maintained organized stations, and assisted guests with menu choices and dietary needs."
+      },
+      {
+        "id": "northeastern-cag",
+        "coords": [
+          47.623,
+          -122.337
+        ],
+        "company": "Northeastern University MIE",
+        "title": "Fluid Mechanics Teaching Assistant",
+        "period": "Summer 2023",
+        "end date": "08-2023",
+        "location": "Remote",
+        "companyIcon": "logos/northeastern.png",
+        "description": "Assisted in teaching summer Fluid Mechanics by grading bi-weekly homework, holding regular office hours for tutoring and test prep, and supporting students through remote communication.",
+        "secondaryCategories": [
+          "engineering"
+        ]
+      },
+      {
+        "id": "northeastern-umm",
+        "coords": [
+          42.3351,
+          -71.0893
+        ],
+        "company": "Northeastern University Math Department",
+        "title": "Multivariable Calculus Teaching Assistant",
+        "period": "Fall-2022",
+        "end date": "12-2022",
+        "location": "Boston, MA",
+        "companyIcon": "logos/northeastern.png",
+        "description": "Served as teaching assistant for multivariable calculus, leading in-class problem demonstrations, hosting regular office hours and remote tutoring, and grading weekly quizzes and exams.",
+        "secondaryCategories": [
+          "engineering"
+        ]
+      },
+      {
+        "id": "doordash",
+        "coords": [
+          40.7968,
+          -77.8571
+        ],
+        "company": "DoorDash",
+        "title": "Delivery Driver",
+        "period": "2020-2022",
+        "end date": "08-2022",
+        "location": "State College, PA",
+        "companyIcon": "logos/doordash.png",
+        "description": "Delivered food efficiently and on time as a DoorDash driver, ensuring accurate orders and providing friendly service."
+      },
+      {
+        "id": "landscaping",
+        "coords": [
+          40.9645,
+          -76.8848
+        ],
+        "company": "Matthew Steidle Landscaping",
+        "title": "Chief Engineer",
+        "period": "Summers 2015-2022",
+        "end date": "08-2022",
+        "location": "Lewisburg, PA",
+        "companyIcon": "logos/landscaping.jpg",
+        "description": "Participated in all aspects of residential landscape design, taking part in design, bidding, and construction of stone labyrinth, garden walls, patio decking as well as day-to-day tasks including mulching, tree work, planting, and general maintenance."
+      }
+    ]
+  }
+}
